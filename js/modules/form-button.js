@@ -1,11 +1,11 @@
 export default function initFormButton() {
     $('[data-form-btn-anapro]').click(function (e) {
-        e.preventDefault();
 
         const btnCurrent = $(this);
         btnCurrent.prop('disabled', true);
 
-        /* Link Form Fale conosco */ {
+        /* Link Form Fale conosco */
+        /* {
             let formURL = 'https://online.crm.anapro.com.br/WebCRMService/Pages/chat/cliente/v2/ChatClienteFaleConosco.aspx?conta=1EvTOyY1Dpc1';
             formURL += '&keyIntegradora=BF283EA3-8124-4527-88D4-D44CBEC4D267';
             formURL += '&keyAgencia=291f17b8-c9b0-41f4-9c01-4e6b9e78d818';
@@ -34,7 +34,7 @@ export default function initFormButton() {
             formURL += '&emailobrigatorio=true';
             formURL += '&telefoneobrigatorio=false';
             formURL += '&texto=';
-        }
+        } */
 
         const Key = document.getElementById('Key').value;
         const KeyIntegradora = document.getElementById('KeyIntegradora').value;
@@ -84,41 +84,32 @@ export default function initFormButton() {
             "KeyAgencia": KeyAgencia
         };
 
-        console.log('Objeto enviado', dados);
+        // console.log('Objeto enviado', dados);
 
-        $.ajax({
-            url: 'https://crm.anapro.com.br/webcrm/webapi/integracao/v2/CadastrarProspect',
-            data: dados,
-            crossDomain: true,
-            cache: false,
-            type: 'POST',
-            dataType: 'json',
-            beforeSend: function () {
-                btnCurrent.prop('disabled', true);
-
-                if (nome.length < 1 || email.length < 1) {
-                    $('#alert-form').removeClass('alert-success').addClass('alert-danger').fadeIn('fast').children('p').html('Obrigatório preencher Nome e E-mail.');
+        if ($("#frm-contato")[0].checkValidity() === false) {
+            btnCurrent.prop('disabled', false);
+        } else {
+            $.ajax({
+                url: 'https://crm.anapro.com.br/webcrm/webapi/integracao/v2/CadastrarProspect',
+                data: dados,
+                crossDomain: true,
+                cache: false,
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    // console.log('Response', response);
                     btnCurrent.prop('disabled', false);
-                    return false;
+                    if (!response.Sucesso) {
+                        $('#alert-form').removeClass('alert-success').addClass('alert-danger').fadeIn('fast').children('p').html('Erro: ' + response.Mensagem);
+                        return true
+                    }
+                    $('#alert-form').removeClass('alert-danger').addClass('alert-success').fadeIn('fast').children('p').html("Cadastro criado com sucesso. " + response.Mensagem);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Erro: " + thrownError + " -- " + xhr.status);
+                    btnCurrent.prop('disabled', false);
                 }
-            },
-            success: function (response) {
-                console.log('Response', response);
-                
-                btnCurrent.prop('disabled', false);
-
-                if (!response.Sucesso) {
-                    $('#alert-form').removeClass('alert-success').addClass('alert-danger').fadeIn('fast').children('p').html('Erro: ' + response.Mensagem);
-                    return true
-                }
-
-                $('#alert-form').removeClass('alert-danger').addClass('alert-success').fadeIn('fast').children('p').html("Cadastro criado com sucesso. " + response.Mensagem);
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                alert("Erro: " + thrownError + " -- " + xhr.status);
-                
-                btnCurrent.prop('disabled', false);
-            }
-        });
+            });
+        }
     });
 }
