@@ -1,9 +1,4 @@
 export default function initInjections() {
-    // $("#nome").val("Teste");
-    $("#email").val("teste@teste.com.br");
-    $("#telefone").val("(19) 99999-8888");
-    $("#obs").val("Esse é um teste gerado através do gerador de teste de integração http://maxvendas.azurewebsites.net/webcrm/pages/teste/cadastroprospect.html.");
-
     // Valores pré-configurados para teste
     /* document.getElementById('Key').value = '1EvTOyY1Dpc1';  // OK
     document.getElementById('KeyIntegradora').value = 'BF283EA3-8124-4527-88D4-D44CBEC4D267';  // OK
