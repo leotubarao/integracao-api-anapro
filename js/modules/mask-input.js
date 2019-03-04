@@ -8,5 +8,7 @@ export default function initMaskInput() {
         }
     };
 
-    $('#telefone').mask(SPMaskBehavior, spOptions);
+    $('#telefone, .telefone, [type="tel"]').each(function(){
+        $(this).mask(SPMaskBehavior, spOptions)
+    });
 }
