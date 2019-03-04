@@ -1,17 +1,15 @@
 export default function initChatButton() {
     $("[data-chat-btn-anapro]").click(function (e) {
-        e.preventDefault();
-    
         try {
-            const nome = encodeURI($("#nome").val());
-            const email = encodeURI($("#email").val());
+            const nome = encodeURI($("#frm-chat .name").val());
+            const email = encodeURI($("#frm-chat .email").val());
     
-            let telefone = $("#telefone").val().replace(/\D/g, '');
+            let telefone = $("#frm-chat .telefone").val().replace(/\D/g, '');
             const ddd = telefone.length > 9 ? telefone.substring(0, 2) : '';
     
             telefone = ddd.length > 0 ? telefone.substring(2, telefone.length) : telefone;
     
-            const Obs = encodeURI(document.getElementById('obs').value);
+            const mensagem = encodeURI($("#frm-chat .mensagem").val());
     
             let chatURL = 'https://online.crm.anapro.com.br/WebCRMService/Pages/chat/cliente/v2/ChatClienteEntrada.aspx?conta=1EvTOyY1Dpc1';
                 chatURL +='&keyIntegradora=BF283EA3-8124-4527-88D4-D44CBEC4D267';
@@ -25,7 +23,7 @@ export default function initChatButton() {
                 chatURL +='&usuarioEmail=';
                 chatURL +='&strgrupopeca=';
                 chatURL +='&strcampanhapeca=';
-                chatURL +='&nome=' + nome + '&email=' + email + '&telefoneDDD=' + ddd + '&telefone=' + telefone + '&strTexto=' + Obs + '&keyexterno=';
+                chatURL +='&nome=' + nome + '&email=' + email + '&telefoneDDD=' + ddd + '&telefone=' + telefone + '&strTexto=' + mensagem + '&keyexterno=';
                 chatURL +='&urlep=';
                 chatURL +='&urlcp=';
                 chatURL +='&urlca=';
@@ -35,12 +33,13 @@ export default function initChatButton() {
                 chatURL +='&strUsarDadosAnteriores=true';
                 chatURL +='&emailobrigatorio=true';
                 chatURL +='&telefoneobrigatorio=false';
-                chatURL +='&texto=' + Obs;
+                chatURL +='&texto=' + mensagem;
     
             window.open(chatURL, '_blank');
     
         } catch (ex) {
             alert("Erro: " + ex);
         }
+        return false;
     });
 }
