@@ -26,7 +26,7 @@ gulp.task( 'sass', compilaSass );
 function gulpJSModules() {
     return gulp
     .src( [
-        'js/modules/*.js'
+        'dist/scripts/**/*.js'
     ] )
     .pipe( uglify() )
     .pipe( gulp.dest( 'assets/scripts/' ) )
@@ -47,6 +47,7 @@ gulp.task( 'browser-sync', browser );
 
 function watch() {
     gulp.watch( 'dist/sass/**', compilaSass );
+    gulp.watch( 'dist/scripts/**', gulpJSModules );
     gulp.watch( 'index.html' ).on( 'change', browserSync.reload );
 }
 
