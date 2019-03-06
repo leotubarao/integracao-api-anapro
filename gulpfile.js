@@ -2,6 +2,7 @@ const gulp = require( 'gulp' );
 const sass = require( 'gulp-sass' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const uglify = require( 'gulp-uglify-es' ).default;
+const babel = require('gulp-babel');
 const gutil = require('gulp-util');
 const browserSync = require( 'browser-sync' ).create();
 
@@ -28,6 +29,9 @@ function gulpJSModules() {
     .src( [
         'dist/scripts/**/*.js'
     ] )
+    .pipe( babel( {
+        presets: ['@babel/env']
+    } ) )
     .pipe( uglify() )
     .pipe( gulp.dest( 'assets/scripts/' ) )
     .pipe( browserSync.stream() )
