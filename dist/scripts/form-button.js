@@ -1,4 +1,4 @@
-export default function initFormButton() {
+{
     $('[data-form-btn-anapro]').click(function (e) {
 
         const btnCurrent = $(this);

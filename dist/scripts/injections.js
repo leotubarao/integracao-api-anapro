@@ -1,4 +1,4 @@
-export default function initInjections() {
+{
     // Valores pré-configurados para teste
     /* document.getElementById('Key').value = '1EvTOyY1Dpc1';  // OK
     document.getElementById('KeyIntegradora').value = 'BF283EA3-8124-4527-88D4-D44CBEC4D267';  // OK

@@ -1,1 +1,0 @@
-export default function initMaskInput(){var e=function(e){return 11===e.replace(/\D/g,"").length?"(00) 00000-0000":"(00) 0000-00009"},n={onKeyPress:function(n,t,a,o){a.mask(e.apply({},arguments),o)}};$('#telefone, .telefone, [type="tel"]').each(function(){$(this).mask(e,n)})}

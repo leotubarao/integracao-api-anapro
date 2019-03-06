@@ -1,4 +1,4 @@
-export default function initChatButton() {
+{
     $("[data-chat-btn-anapro]").click(function() {
         if ($("#frm-chat")[0].checkValidity()) {
             try {
