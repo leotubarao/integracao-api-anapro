@@ -45,17 +45,17 @@
         const CanalKeyChat = document.getElementById('CanalKeyChat').value;
         const Midia = document.getElementById('Midia').value;
         const Peca = document.getElementById('Peca').value;
-        const Obs = document.getElementById('obs').value;
         const UsuarioEmail = document.getElementById('emailUser').value;
 
-        const nome = $("#nome").val();
+        const nome = $("[data-form-anapro] .nome").val();
+        const email = $("[data-form-anapro] .email").val();
 
-        let telefone = $("#telefone").val().replace(/\D/g, '');
+        let telefone = $("[data-form-anapro] .telefone").val().replace(/\D/g, '');
         const ddd = telefone.length > 9 ? telefone.substring(0, 2) : '';
 
         telefone = ddd.length > 0 ? telefone.substring(2, telefone.length) : telefone;
 
-        const email = $("#email").val();
+        const mensagem = $("[data-form-anapro] .mensagem").val();
 
         let dados = {
             "Key": Key,
@@ -76,7 +76,7 @@
                 "Numero": telefone,
                 "Ramal": null
             }],
-            "Observacoes": Obs,
+            "Observacoes": mensagem,
             "UsuarioEmail": UsuarioEmail,
             "Status": "",
             "KeyExterno": "",
@@ -86,7 +86,7 @@
 
         // console.log('Objeto enviado', dados);
 
-        if ($("#frm-contato")[0].checkValidity() === false) {
+        if ($("[data-form-anapro]")[0].checkValidity() === false) {
             btnCurrent.prop('disabled', false);
         } else {
             $.ajax({

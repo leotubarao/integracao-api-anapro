@@ -7655,8 +7655,3 @@ a.text-dark:hover, a.text-dark:focus {
 @import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/print";
 */
-.btn-chat {
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
-}

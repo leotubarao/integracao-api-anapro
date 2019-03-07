@@ -5,6 +5,8 @@
     <title>Página de teste de integração API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/styles/bootstrap.css">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="http://www.monterreyresidencial.com.br/wp-content/themes/jupiter/stylesheet/css/styles.min.css">
 </head>
 <body class="my-4">
     <div class="container">
@@ -29,31 +31,26 @@
                 <div class="card bg-light card-default">
                     <div class="card-body">
                         <h1>Formulário</h1>
-                        <form id="frm-contato">
-                            <div class="form-group">
-                                <label for="nome">Nome:</label>
-                                <input type="text" id="nome" name="nome" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefone">Telefone:</label>
-                                <input type="tel" maxlength="15" minlength="14" id="telefone" name="telefone" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="obs">Observação:</label>
-                                <textarea type="text" id="obs" name="obs" class="form-control"></textarea>
-                            </div>
-                            <div class="d-flex">
-                                <button data-form-btn-anapro class="btn btn-success mr-2">Enviar</button>
-                                <input data-form-btn-clear value="Limpar" class="btn btn-secondary ml-auto" type="reset">
-                            </div>
-                            <div id="alert-form" class="alert mt-3" role="alert" style="display: none">
-                                <p class="mb-0"></p>
-                            </div>
-                        </form>
+                        <div class="mk-contact-form-wrapper mk-shortcode contact-dark outline-style form-lt">
+                            <form id="frm-contato" data-form-anapro class="mk-contact-form">
+                                <div class="mk-form-row">
+                                    <input placeholder="Nome" type="text" name="contact_name" class="text-input two-third nome" tabindex="5c80b7e0767df" required>
+                                    <input placeholder="Telefone" type="tel" maxlength="15" minlength="14" name="contact_phone" class="text-input two-third telefone" tabindex="6">
+                                    <input placeholder="Email" type="email" name="contact_email" class="text-input two-third email" tabindex="7" required>
+                                </div>
+                                <div class="mk-form-row">
+                                    <textarea placeholder="Como podemos ajudar?" name="contact_content" class="mk-textarea mensagem" tabindex="8"></textarea>
+                                </div>
+                                <div class="mk-form-row">
+                                    <button data-form-btn-anapro tabindex="9" class="mk-progress-button contact-outline-submit outline-btn-dark" data-style="move-up">
+                                        <span class="mk-progress-button-content">Enviar</span>
+                                    </button>
+                                </div>
+                                <div id="alert-form" class="alert" role="alert" style="display: none">
+                                    <p class="mb-0"></p>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,32 +114,32 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="frm-chat">
-                        <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" class="form-control nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="tel" maxlength="15" minlength="14" id="telefone" name="telefone" class="form-control telefone">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
-                            <textarea type="text" id="mensagem" name="mensagem" class="form-control mensagem"></textarea>
-                        </div>
-                        <div class="d-flex">
-                            <button data-chat-btn-anapro class="btn btn-primary">Chat</button>
-                        </div>
-                    </form>
+                    <div class="mk-contact-form-wrapper mk-shortcode contact-dark outline-style form-lt">
+                        <form id="frm-chat" data-chat-anapro class="mk-contact-form">
+                            <div class="mk-form-row">
+                                <input placeholder="Nome" type="text" name="contact_name" class="text-input two-third nome" tabindex="5c80b7e0767df" required>
+                                <input placeholder="Telefone" type="tel" maxlength="15" minlength="14" name="contact_phone" class="text-input two-third telefone" tabindex="6">
+                                <input placeholder="Email" type="email" name="contact_email" class="text-input two-third email" tabindex="7" required>
+                            </div>
+                            <div class="mk-form-row">
+                                <textarea placeholder="Observações?" name="contact_content" class="mk-textarea mensagem" tabindex="8"></textarea>
+                            </div>
+                            <div class="mk-form-row">
+                                <button data-chat-btn-anapro tabindex="9" class="mk-progress-button contact-outline-submit outline-btn-dark" data-style="move-up">
+                                    <span class="mk-progress-button-content">Chat</span>
+                                </button>
+                            </div>
+                            <div id="alert-form" class="alert" role="alert" style="display: none">
+                                <p class="mb-0"></p>
+                            </div>
+                        </form>
+                    </div>
+        
                 </div>
             </div>
         </div>
     </div>
-    <button data-toggle="modal" data-target="#frm-chat-wrapper" class="btn btn-primary btn-chat">Chat</button>
+    <button data-toggle="modal" data-target="#frm-chat-wrapper" tabindex="990" class="btn-chat"><i class="mk-jupiter-icon-simple-wechat"></i>chat</button>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <script src="./assets/scripts/main.min.js"></script>

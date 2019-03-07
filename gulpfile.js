@@ -28,7 +28,8 @@ gulp.task( 'sass', compilaSass );
 function gulpJSModules() {
     return gulp
     .src( [
-        'dist/scripts/**/*.js'
+        'dist/scripts/**/*.js',
+        '!dist/scripts/no-concat/**/*',
     ] )
     .pipe( concat( 'main.min.js' ) )
     .pipe( babel( {

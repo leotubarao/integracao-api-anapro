@@ -1,0 +1,38 @@
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Optional
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/close";
+
+.btn-chat {
+    position: fixed;
+	bottom: 15px;
+	left: 15px;
+	color: white;
+	z-index: 990;
+	font-size: 25px;
+	line-height: 0.90;
+	background-color: #2E3727;
+	padding: 10px;
+    border-radius: 5px;
+	border: none;
+	&:hover {
+		background-color: #39482e;
+	}
+	&:focus {
+		outline: none;
+	}
+	
+}
+
+.form-lt {
+    .text-input.two-third {
+        width: 100%!important;
+    }
+}

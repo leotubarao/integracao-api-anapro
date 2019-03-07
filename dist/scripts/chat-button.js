@@ -2,15 +2,15 @@
     $("[data-chat-btn-anapro]").click(function() {
         if ($("#frm-chat")[0].checkValidity()) {
             try {
-                const nome = encodeURI($("#frm-chat .name").val());
-                const email = encodeURI($("#frm-chat .email").val());
+                const nome = encodeURI($("[data-chat-anapro] .nome").val());
+                const email = encodeURI($("[data-chat-anapro] .email").val());
         
-                let telefone = $("#frm-chat .telefone").val().replace(/\D/g, '');
+                let telefone = $("[data-chat-anapro] .telefone").val().replace(/\D/g, '');
                 const ddd = telefone.length > 9 ? telefone.substring(0, 2) : '';
         
                 telefone = ddd.length > 0 ? telefone.substring(2, telefone.length) : telefone;
         
-                const mensagem = encodeURI($("#frm-chat .mensagem").val());
+                const mensagem = encodeURI($("[data-chat-anapro] .mensagem").val());
         
                 let chatURL = 'https://online.crm.anapro.com.br/WebCRMService/Pages/chat/cliente/v2/ChatClienteEntrada.aspx?conta=1EvTOyY1Dpc1';
                     chatURL +='&keyIntegradora=BF283EA3-8124-4527-88D4-D44CBEC4D267';
@@ -37,9 +37,11 @@
                     chatURL +='&texto=' + mensagem;
         
                 window.open(chatURL, '_blank');
-        
+                $('.modal.show .close').trigger( 'click' );
+                return false;
             } catch (ex) {
                 alert("Erro: " + ex);
+                return false;
             }
         }
     });
