@@ -10,97 +10,29 @@
 </head>
 <body class="my-4">
     <div class="container">
-        <div class="jumbotron bg-secondary text-white text-uppercase text-center">
-            <h1>Página de teste de integração API</h1>
-        </div>
-        <div class="card bg-light card-info">
-            <div class="card-header">
-                <h3 class="card-title">Importante!</h3>
-            </div>
-            <div class="card-body">
-                Todas as informações necessárias para configurar este formulário de teste se encontram no CRM acessando
-                o menu <i>Configurações &gt; Campanha &gt; Editar &gt; Integração</i>. <br> Para mais informações sobre
-                integrações acesse nossa documentação
-                <a href="https://anapro.zendesk.com/hc/pt-br/articles/204462485" target="_blank">clicando aqui</a>.<br>
-                Caso tenha alguma dúvida, entre em contato com nosso suporte através do email suporte@anapro.com.br ou
-                pelo telefone 11-50823353.
-            </div>
-        </div>
         <div class="row mt-5">
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0 mx-auto">
-                <div class="card bg-light card-default">
-                    <div class="card-body">
-                        <h1>Formulário</h1>
-                        <div class="mk-contact-form-wrapper mk-shortcode contact-dark outline-style form-lt">
-                            <form id="frm-contato" data-form-anapro class="mk-contact-form">
-                                <div class="mk-form-row">
-                                    <input placeholder="Nome" type="text" name="contact_name" class="text-input two-third nome" tabindex="5c80b7e0767df" required>
-                                    <input placeholder="Telefone" type="tel" maxlength="15" minlength="14" name="contact_phone" class="text-input two-third telefone" tabindex="6">
-                                    <input placeholder="Email" type="email" name="contact_email" class="text-input two-third email" tabindex="7" required>
-                                </div>
-                                <div class="mk-form-row">
-                                    <textarea placeholder="Como podemos ajudar?" name="contact_content" class="mk-textarea mensagem" tabindex="8"></textarea>
-                                </div>
-                                <div class="mk-form-row">
-                                    <button data-form-btn-anapro tabindex="9" class="mk-progress-button contact-outline-submit outline-btn-dark" data-style="move-up">
-                                        <span class="mk-progress-button-content">Enviar</span>
-                                    </button>
-                                </div>
-                                <div id="alert-form" class="alert" role="alert" style="display: none">
-                                    <p class="mb-0"></p>
-                                </div>
-                            </form>
+            <div class="col-12 col-md-8 col-lg-6 mx-auto">
+                <h1>Formulário</h1>
+                <div class="mk-contact-form-wrapper mk-shortcode contact-dark outline-style form-lt">
+                    <form id="frm-contato" data-form-anapro class="mk-contact-form">
+                        <div id="alert-form" class="alert" role="alert" style="display: none">
+                            <p></p>
                         </div>
-                    </div>
+                        <div class="mk-form-row d-flex">
+                            <input placeholder="Nome" type="text" name="contact_name" class="text-input two-third nome" tabindex="5" required>
+                            <input placeholder="Telefone" type="tel" maxlength="15" minlength="14" name="contact_phone" class="text-input two-third telefone" tabindex="6">
+                            <input placeholder="Email" type="email" name="contact_email" class="text-input two-third email" tabindex="7" required>
+                        </div>
+                        <div class="mk-form-row">
+                            <textarea placeholder="Como podemos ajudar?" name="contact_content" class="mk-textarea mensagem" tabindex="8"></textarea>
+                        </div>
+                        <div class="mk-form-row">
+                            <button data-form-btn-anapro tabindex="9" class="mk-progress-button contact-outline-submit outline-btn-dark" data-style="move-up">
+                                <span class="mk-progress-button-content">Enviar</span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="params-container col-12 col-lg-7 mb-4 mb-lg-0">
-                <h1>Parâmetros</h1>
-                <form id="frm-contato" class="form-horizontal">
-                    <div class="form-group">
-                        <label for="Key">Key: </label>
-                        <input type="text" id="Key" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="KeyIntegradora">KeyIntegradora: </label>
-                        <input type="text" id="KeyIntegradora" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="KeyAgencia">KeyAgencia: </label>
-                        <input type="text" id="KeyAgencia" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="CampanhaKey">CampanhaKey: </label>
-                        <input type="text" id="CampanhaKey" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="ProdutoKey">ProdutoKey: </label>
-                        <input type="text" id="ProdutoKey" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="CanalKey">CanalKey (mensagens): </label>
-                        <input type="text" id="CanalKey" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="CanalKey">CanalKey (chat): </label>
-                        <input type="text" id="CanalKeyChat" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="Midia">Mídia: </label>
-                        <input type="text" id="Midia" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="Midia">Peça: </label>
-                        <input type="text" id="Peca" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="Midia">E-mail (usuário que irá atender): </label>
-                        <input type="email" id="emailUser" class="form-control" aria-describedby="passwordHelpBlock">
-                        <small id="passwordHelpBlock" class="form-text text-muted">
-                            E-mail do usuário cadastrado no sistema que esse cliente será direcionado. <b>Não é obrigatório</b>, mas caso repassado tentará enviar para o usuário em questão ao invés da roleta de atendimento.
-                        </small>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -117,15 +49,15 @@
                     <div class="mk-contact-form-wrapper mk-shortcode contact-dark outline-style form-lt">
                         <form id="frm-chat" data-chat-anapro class="mk-contact-form">
                             <div class="mk-form-row">
-                                <input placeholder="Nome" type="text" name="contact_name" class="text-input two-third nome" tabindex="5c80b7e0767df" required>
-                                <input placeholder="Telefone" type="tel" maxlength="15" minlength="14" name="contact_phone" class="text-input two-third telefone" tabindex="6">
-                                <input placeholder="Email" type="email" name="contact_email" class="text-input two-third email" tabindex="7" required>
+                                <input placeholder="Nome" type="text" name="contact_name" class="text-input two-third nome" tabindex="10" required>
+                                <input placeholder="Telefone" type="tel" maxlength="15" minlength="14" name="contact_phone" class="text-input two-third telefone" tabindex="11">
+                                <input placeholder="Email" type="email" name="contact_email" class="text-input two-third email" tabindex="12" required>
                             </div>
                             <div class="mk-form-row">
-                                <textarea placeholder="Observações?" name="contact_content" class="mk-textarea mensagem" tabindex="8"></textarea>
+                                <textarea placeholder="Observações?" name="contact_content" class="mk-textarea mensagem" tabindex="13"></textarea>
                             </div>
                             <div class="mk-form-row">
-                                <button data-chat-btn-anapro tabindex="9" class="mk-progress-button contact-outline-submit outline-btn-dark" data-style="move-up">
+                                <button data-chat-btn-anapro tabindex="14" class="mk-progress-button contact-outline-submit outline-btn-dark" data-style="move-up">
                                     <span class="mk-progress-button-content">Chat</span>
                                 </button>
                             </div>

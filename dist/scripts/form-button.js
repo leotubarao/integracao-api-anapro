@@ -4,49 +4,6 @@
         const btnCurrent = $(this);
         btnCurrent.prop('disabled', true);
 
-        /* Link Form Fale conosco */
-        /* {
-            let formURL = 'https://online.crm.anapro.com.br/WebCRMService/Pages/chat/cliente/v2/ChatClienteFaleConosco.aspx?conta=1EvTOyY1Dpc1';
-            formURL += '&keyIntegradora=BF283EA3-8124-4527-88D4-D44CBEC4D267';
-            formURL += '&keyAgencia=291f17b8-c9b0-41f4-9c01-4e6b9e78d818';
-            formURL += '&strDir=gencons';
-            formURL += '&campanha=PxjqjSe3luw1';
-            formURL += '&canal=nDj2YhJeLm41';
-            formURL += '&produto=nAcSOGTta101';
-            formURL += '&strmidia=Site+Monterrey';
-            formURL += '&strpeca=';
-            formURL += '&usuarioEmail=';
-            formURL += '&strgrupopeca=';
-            formURL += '&strcampanhapeca=';
-            formURL += '&nome=';
-            formURL += '&email=';
-            formURL += '&telefoneDDD=';
-            formURL += '&telefone=';
-            formURL += '&strTexto=';
-            formURL += '&keyexterno=';
-            formURL += '&urlep=';
-            formURL += '&urlcp=';
-            formURL += '&urlca=';
-            formURL += '&urlat=';
-            formURL += '&strMostrarTopo=true';
-            formURL += '&strAutoSubmit=true';
-            formURL += '&strUsarDadosAnteriores=true';
-            formURL += '&emailobrigatorio=true';
-            formURL += '&telefoneobrigatorio=false';
-            formURL += '&texto=';
-        } */
-
-        const Key = document.getElementById('Key').value;
-        const KeyIntegradora = document.getElementById('KeyIntegradora').value;
-        const KeyAgencia = document.getElementById('KeyAgencia').value;
-        const CampanhaKey = document.getElementById('CampanhaKey').value;
-        const ProdutoKey = document.getElementById('ProdutoKey').value;
-        const CanalKey = document.getElementById('CanalKey').value;
-        const CanalKeyChat = document.getElementById('CanalKeyChat').value;
-        const Midia = document.getElementById('Midia').value;
-        const Peca = document.getElementById('Peca').value;
-        const UsuarioEmail = document.getElementById('emailUser').value;
-
         const nome = $("[data-form-anapro] .nome").val();
         const email = $("[data-form-anapro] .email").val();
 
@@ -58,33 +15,23 @@
         const mensagem = $("[data-form-anapro] .mensagem").val();
 
         let dados = {
-            "Key": Key,
-            "TagAtalho": "",
-            "CampanhaKey": CampanhaKey,
-            "ProdutoKey": ProdutoKey,
-            "CanalKey": CanalKey,
-            "Midia": Midia,
-            "Peca": Peca,
-            "GrupoPeca": "",
-            "CampanhaPeca": "",
-            "PessoaNome": nome,
-            "PessoaSexo": "",
-            "PessoaEmail": email,
-            "PessoaTelefones": [{
-                "Tipo": "OUTR",
-                "DDD": ddd,
-                "Numero": telefone,
-                "Ramal": null
+            'Key': '1EvTOyY1Dpc1',
+            'CampanhaKey': 'PxjqjSe3luw1',
+            'ProdutoKey': 'nAcSOGTta101',
+            'CanalKey': 'nDj2YhJeLm41',
+            'Midia': 'Site+Monterrey',
+            'PessoaNome': nome,
+            'PessoaEmail': email,
+            'PessoaTelefones': [{
+                'Tipo': 'OUTR',
+                'DDD': ddd,
+                'Numero': telefone,
+                'Ramal': null
             }],
-            "Observacoes": mensagem,
-            "UsuarioEmail": UsuarioEmail,
-            "Status": "",
-            "KeyExterno": "",
-            "KeyIntegradora": KeyIntegradora,
-            "KeyAgencia": KeyAgencia
+            'Observacoes': mensagem,
+            'KeyIntegradora': 'BF283EA3-8124-4527-88D4-D44CBEC4D267',
+            'KeyAgencia': '291f17b8-c9b0-41f4-9c01-4e6b9e78d818'
         };
-
-        // console.log('Objeto enviado', dados);
 
         if ($("[data-form-anapro]")[0].checkValidity() === false) {
             btnCurrent.prop('disabled', false);
@@ -97,7 +44,6 @@
                 type: 'POST',
                 dataType: 'json',
                 success: function (response) {
-                    // console.log('Response', response);
                     btnCurrent.prop('disabled', false);
                     if (!response.Sucesso) {
                         $('#alert-form').removeClass('alert-success').addClass('alert-danger').fadeIn('fast').children('p').html('Erro: ' + response.Mensagem);
