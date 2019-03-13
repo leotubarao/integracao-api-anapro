@@ -460,7 +460,8 @@ a.close.disabled {
 }
 
 .btn-chat:hover {
-  opacity: 0.5;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .btn-chat:focus {

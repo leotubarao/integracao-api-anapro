@@ -18,7 +18,7 @@
 	background-color: transparent;
 	transition: all 0.3s;
 	&:hover {
-		opacity: 0.5;
+		transform: translateY(-5px);
 	}
 	&:focus {
 		outline: none;
